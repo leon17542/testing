@@ -27,7 +27,7 @@
         </div>
       </header>
       <div>
-        <h1 class="mt-5">Deploy PHP Application to Vercel!!!</h1>
+        <h1 class="mt-5">Deploy PHP Application to Vercel</h1>
         <div class="row">
           <div class="col-lg-8 col-12 mx-auto">
             <p class="lead">
