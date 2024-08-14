@@ -1,48 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SK1N7CEJHK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SK1N7CEJHK');
-  </script>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?="PHP + Vercel";?></title>
-  <link rel="shortcut icon" href="../public/images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="../vendor/twbs/bootstrap-icons/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../public/styles/styles.css">
-  <link rel="stylesheet" href="../public/styles/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <?php include_once 'header.php' ?>
 </head>
-<body class="d-flex min-vh-100 text-center">
-  <main class="d-flex container-lg mx-auto flex-column">
-    <header class="pt-5">
-        <div class="d-flex w-50 align-items-center justify-content-center mx-auto">
-          <div>
-            <img class="img-fluid" src="../public/images/php-vercel.svg" alt="">
-          </div>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            <?php
+            $aboutText = "Hello! I'm a web developer with a passion for creating beautiful and functional websites.";
+            echo $aboutText;
+            ?>
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects">
+            <?php
+            $projects = [
+                ["title" => "Project One", "description" => "Description for project one."],
+                ["title" => "Project Two", "description" => "Description for project two."],
+                ["title" => "Project Three", "description" => "Description for project three."]
+            ];
+
+            foreach ($projects as $project) {
+                echo "<div class='project-item'>";
+                echo "<h3>" . $project["title"] . "</h3>";
+                echo "<p>" . $project["description"] . "</p>";
+                echo "</div>";
+            }
+            ?>
         </div>
-      </header>
-      <div>
-        <h1 class="mt-5">Deploy PHP Application to Vercel</h1>
-        <div class="row">
-          <div class="col-lg-8 col-12 mx-auto">
-            <p class="lead">
-              Do you have a PHP application project but only stored on your local machine? Now with Vercel you can deploy your application to the internet!
-            </p>
-          </div>
-        </div>
-        <a class="btn btn-lg btn-outline-light" href="/api/tutorial.php" role="button">Learn more</a>
-      </div>
-      <footer class="mt-auto text-white-50">
-        <p>Insipired by <a href="https://github.com/vercel-community/php" class="text-white">@vercel-community</a> and <a href="https://github.com/juicyfx/vercel-examples" class="text-white">@juicyfx</a></p>
-        <img src="" alt="">
-      </footer>
-    </main>
-  <script src="../public/scripts/scripts.js"></script>
-  <script src="../public/scripts/bootstrap.bundle.min.js"></script>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form action="contact.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Portfolio</p>
+    </footer>
 </body>
 </html>
